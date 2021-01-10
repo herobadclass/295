@@ -1,0 +1,8 @@
+	.globl sqrt
+sqrt:
+	movl $0, %eax		# result = 0
+	movl , %ecx	# bitmask = 0x8000 = 1000 0000 0000 0000
+loop:
+	shr $1, %ecx
+	jne loop		# jump till
+	ret

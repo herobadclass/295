@@ -1,0 +1,23 @@
+	.globl sqrt
+sqrt:
+	movl $0, %eax		# result = 0
+	movl 0x8000, %ecx	# bitmask = 0x8000 = 1000 0000 0000 0000
+
+loop:
+	xor %ecx, %eax		# sets the nth bit of result to 1
+mulloop:
+	movl $0, %edx		# counter = 0
+	movl $0, %esi		# mulresult = 0
+	cmp %edx, %eax
+	je endif		# jump if counter = result
+	add %esi, %eax		# mulresult += result
+	inc %edx		# counter ++
+	jmp mulloop
+endif:
+	cmp %esi, %edi
+	jge keep		# jump if x >= result*result
+	xor %ecx, %eax		# sets the nth bit back to 0
+keep:
+	
+	jne loop		# jump till 
+	ret

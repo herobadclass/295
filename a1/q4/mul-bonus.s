@@ -1,0 +1,5 @@
+	.globl times
+times:
+
+	ret
+

@@ -1,0 +1,11 @@
+	.globl conv
+# %rsi = array1conv:
+	mov $0, %al	#return = 0
+	mov $0, %rcx	#m = 0
+	cmp %rcx, %edx	#m - length ? 0
+	jle endif
+	
+
+
+endif:
+	ret

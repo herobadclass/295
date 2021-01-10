@@ -1,0 +1,15 @@
+	.globl times
+// %edi = a
+// %esi = b
+:
+	mov $0, %eax	// return variable = 0
+	mov $0, %ecx	// counter = 0
+loop:
+	cmp %ecx, %esi	// b - counter
+	je endif	// if b - counter == 0
+	add %edi, %eax	// return variable = return variable + a
+	inc %ecx	// counter + counter + 1
+	jmp loop
+endif:
+	ret
+

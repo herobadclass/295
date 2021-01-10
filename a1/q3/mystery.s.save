@@ -1,0 +1,16 @@
+	.globl mystery
+mystery:
+	movl	$0, %eax		// %eax = 0
+	leaq	(%rdi, %rsi), %rcx	// %rcx = %rdi+%rsi
+
+loop:
+	cmpq	%rdi, %rcx		// %rcx-%rdi
+	jle	endl			// if less than or equal to 0 end
+	decq	%rcx			// %rcx-1
+	cmpb	$0x6f, (%rcx)		// M[%rcx]-'o'
+	jne	loop			// jump if not equal
+	incl	%eax			// %eax+1
+	jmp	loop			// jump
+
+endl:
+	ret

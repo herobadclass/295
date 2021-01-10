@@ -1,0 +1,12 @@
+	.globl times
+times:
+	mov $0, %eax
+loop:
+	cmp %esi, $0
+	jle endif
+	add %edi, %eax
+	dec %esi
+	jmp loop
+endif:
+	ret
+
